@@ -1,16 +1,13 @@
-import { LanguageParser } from './Utils/type';
-import { JavascriptParser } from './Parsers/JavascriptParser';
-import { JavaParser } from './Parsers/JavaParser';
+import { LanguageParser } from '../Utils/type';
+import { JavascriptParser } from './JavascriptParser';
 
 class ParserFactory {
   private static parsers: LanguageParser[] = [
     new JavascriptParser(),
-    new JavaParser(),
-    // Add more parsers here as needed
+    // can add more parsers here as needed
   ];
 
   public static getParser(extension: string): LanguageParser {
-    // Ensure extension starts with a dot
     const ext = extension.startsWith('.') ? extension : `.${extension}`;
     
     for (const parser of this.parsers) {
